@@ -1,26 +1,26 @@
 :root {
+  --blue: #0da0ba;
   --color-bg: #ffffff;
-  --nero: #222222;
   --cyber-grape-20: #ddd6e3;
   --deep-purple: #602770;
-  --grey: #676767;
-  --grey-light: #f6f6f9;
+  --green: #60d3bf;
+  --grey-dark: #f6f6f6;
   --grey-light-30: #fcfcfd;
   --grey-light-50: #fafafc;
-  --grey-dark: #f6f6f6;
-  --violet: #9081ac;
-  --violate-light: #e1dce2;
-  --purple: #63006f;
-  --purple-dark: #30183f;
-  --purple-light: rgba(105, 31, 116, 0.3);
-  --orange: #e34b31;
+  --grey-light: #f6f6f9;
+  --grey: #676767;
+  --nero: #222222;
+  --oragnge-salmon: #fad4c5;
   --orange-dark: #d6432a;
   --orange-light: #e34b31;
+  --orange: #e34b31;
   --organge-talent: #fe3b1f;
-  --oragnge-salmon: #fad4c5;
-  --blue: #0da0ba;
+  --purple-dark: #30183f;
+  --purple-light: rgba(105, 31, 116, 0.3);
+  --purple: #63006f;
+  --violate-light: #e1dce2;
+  --violet: #9081ac;
   --yellow: #db9714;
-  --green: #60d3bf;
 }
 
 * {
@@ -48,27 +48,31 @@ code {
     monospace;
 }
 
+.material-symbols-outlined {
+  user-select: none;
+}
+
 header {
-  position: sticky;
-  background-color: #ffffffdd;
-  backdrop-filter: blur(5px);
-  top: 0;
+  align-items: center;
+  animation: IntoAnimation 0.5s ease-in-out alternate-reverse;
+  backdrop-filter: blur(0.31rem);
+  background-color: #ffffffb9;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  gap: 0.3rem;
   justify-content: space-around;
-  gap: 5px;
-  padding: 15px 5px;
+  padding: 0.9rem 0.3rem;
+  position: sticky;
+  top: 0;
   z-index: 1000;
-  animation: IntoAnimation 0.5s ease-in-out alternate-reverse;
 }
 
 @keyframes IntoAnimation {
   0% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateY(-100%);
+    transform: translate3d(0, -100%, 0);
   }
 }
 
@@ -79,15 +83,15 @@ header a {
 
 header .NavOptions,
 header .AcessOptions {
-  display: flex;
   align-items: center;
+  display: flex;
+  gap: 0.6rem;
   justify-content: center;
-  gap: 10px;
 }
 
 header .NavOptions a {
-  padding: 10px;
-  border-radius: 10px;
+  border-radius: 0.6rem;
+  padding: 0.6rem;
   transition: background-color 0.3s;
 }
 
@@ -96,21 +100,21 @@ header .NavOptions a:hover {
 }
 
 .LinkButton {
-  padding: 10px 15px;
-  border-radius: 25px;
+  border-radius: 1.5625rem;
+  padding: 0.6rem 0.9rem;
   text-align: center;
   transition: background 0.3s;
 }
 
 .LinkButton.btn-white {
-  border: 1px solid var(--violate-light);
+  border: 0.06rem solid var(--violate-light);
 }
 .LinkButton.btn-white:hover {
   background-color: var(--grey-dark);
 }
 
 .LinkButton.btn-orange {
-  border: 1px solid var(--orange);
+  border: 0.06rem solid var(--orange);
   color: var(--orange);
 }
 .LinkButton.btn-orange:hover {
@@ -120,37 +124,35 @@ header .NavOptions a:hover {
 
 /* MenuToggleIcon */
 .LabelMenuIcon {
+  /* cursor: pointer; */
   display: flex;
   flex-direction: column;
-  width: 70px;
-  cursor: pointer;
   transform: scale(0.4);
+  width: 4.3rem;
+}
+
+.LabelMenuIcon:hover {
+  transform: scale(0.45);
 }
 
 .LabelMenuIcon span {
   background: var(--purple);
-  border-radius: 10px;
-  height: 7px;
-  margin: 7px 0;
+  border-radius: 0.6rem;
+  height: 0.4rem;
+  margin: 0.4rem 0;
   transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 
-.LabelMenuIcon span:nth-of-type(1) {
-  width: 50%;
-}
-.LabelMenuIcon span:nth-of-type(2) {
-  width: 100%;
-}
-.LabelMenuIcon span:nth-of-type(3) {
-  width: 75%;
-}
+.LabelMenuIcon span:nth-of-type(1) {width: 50%;}
+.LabelMenuIcon span:nth-of-type(2) {width: 100%;}
+.LabelMenuIcon span:nth-of-type(3) {width: 75%;}
 .LabelMenuIcon input[type='checkbox'] {
   display: none;
 }
 
 .LabelMenuIcon input[type='checkbox']:checked ~ span:nth-of-type(1) {
   transform-origin: bottom;
-  transform: rotatez(45deg) translate(8px, 0px);
+  transform: rotatez(45deg) translate3d(0.5rem, 0, 0);
 }
 
 .LabelMenuIcon input[type='checkbox']:checked ~ span:nth-of-type(2) {
@@ -161,42 +163,39 @@ header .NavOptions a:hover {
 .LabelMenuIcon input[type='checkbox']:checked ~ span:nth-of-type(3) {
   transform-origin: bottom;
   width: 50%;
-  transform: translate(30px, -11px) rotateZ(45deg);
+  transform: translate3d(1.8rem, -0.68rem, 0) rotateZ(45deg);
 }
 
 /* ------------------- Main ------------------- */
 main {
+  align-items: center;
+  animation: mainEntrance 0.3s ease-in-out alternate-reverse;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 1.2rem;
   justify-content: center;
-  gap: 20px;
+}
+
+@keyframes mainEntrance {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 /* ----------------- Sections ----------------- */
+section {
+  max-width: 68.75rem;
+}
+
 section.HomeSection {
+  align-items: center;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  align-items: center;
-  margin: 30px 0;
+  margin: 1.8rem 0;
 }
 
 .AniPicture img {
   width: 100%;
-  filter: drop-shadow(-20px -2px 15px rgba(0, 0, 0, 0.25));
-  animation: floating 5s ease-in-out infinite;
-}
-
-@keyframes floating {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+  filter: drop-shadow(-1.2rem -0.12rem 0.93rem rgba(0, 0, 0, 0.25));
 }
 
 section.HomeSection:nth-child(2n) .AniPicture {
@@ -204,35 +203,35 @@ section.HomeSection:nth-child(2n) .AniPicture {
 }
 
 .SectionInfo {
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 1.2rem;
   width: 100%;
-  padding: 20px;
-  gap: 10px;
 }
 
 /* ------------- SearhJobs section ------------ */
-.ContainerJobSearch {
-}
+/* .ContainerJobSearch {
+} */
 
 .SearchJobs {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  align-items: center;
+  gap: 1.2rem;
 }
 
 .SearchJobsContainer {
   display: flex;
   align-items: flex-end;
-  gap: 10px;
+  gap: 0.6rem;
 }
 
 .SearchBar {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0.3rem;
 }
 
 .SearchBar .InputMask {
@@ -243,12 +242,12 @@ section.HomeSection:nth-child(2n) .AniPicture {
 
 .SearchBar .InputMask input {
   background: #f5f5f5;
-  padding: 15px 40px;
-  border-radius: 25px;
+  border-radius: 1.5625rem;
   border: none;
   font-size: 12pt;
-  width: 100%;
+  padding: 0.93rem 2.5rem;
   transition: box-shadow 0.5s, outline 0.2s;
+  width: 100%;
 }
 .SearchBar .InputMask input:hover {
   background: #ebe7e7;
@@ -259,8 +258,8 @@ section.HomeSection:nth-child(2n) .AniPicture {
 }
 
 .SearchBar .InputMask input:focus {
-  outline: 2px solid var(--purple);
-  box-shadow: 0 0 15px #64006f4b;
+  outline: 0.12rem solid var(--purple);
+  box-shadow: 0 0 0.9rem #64006f4b;
 }
 
 .SearchBar .InputMask span {
@@ -268,16 +267,15 @@ section.HomeSection:nth-child(2n) .AniPicture {
 }
 
 .SearchBar .InputMask .InputIcon {
-  left: 10px;
+  left: 0.6rem;
   color: var(--purple);
 }
 
 .CloseBtn {
-  right: 10px;
-  color: #7e7e7e;
-  cursor: pointer;
-  padding: 3px;
   border-radius: 50%;
+  color: #7e7e7e;
+  padding: 0.18rem;
+  right: 0.62rem;
   transition: opacity 0.3s, background 0.3s;
 }
 
@@ -288,17 +286,17 @@ section.HomeSection:nth-child(2n) .AniPicture {
 
 .BtnForm {
   background-color: var(--orange);
+  border: 0.06rem solid white;
   color: white;
-  border: 1px solid white;
-  font-size: 12pt;
-  padding: 15px 20px;
   cursor: pointer;
+  font-size: 12pt;
+  padding: 0.93rem 1.2rem;
 }
 
 .BtnForm:hover {
   background-color: white;
   color: var(--orange);
-  border: 1px solid var(--orange);
+  border: 0.06rem solid var(--orange);
 }
 
 .SearchJobsTags {
@@ -307,112 +305,128 @@ section.HomeSection:nth-child(2n) .AniPicture {
 
 .SearchJobsTagsList {
   display: grid;
-  gap: 15px;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.93rem;
+  grid-template-columns: repeat(auto-fill, minmax(6.25rem, 1fr));
 }
 
 a.SearchJobsTagsItem {
+  align-items: center;
+  display: flex;
+  justify-content: center;
   white-space: nowrap;
+}
+a.SearchJobsTagsItem > div {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 /* ------------- Jobs section ------------ */
 section.JobResults {
   width: 100%;
+  max-width: 93.7rem;
 }
 
 .JobResultsContainer {
+  background: #f5f5f5;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  background: #f5f5f5;
-  padding: 20px;
+  gap: 1.2rem;
+  padding: 1.2rem;
 }
 
 .JobResultsTitles {
+  align-items: center;
   display: flex;
   justify-content: space-around;
-  align-items: center;
   width: 100%;
 }
 
 .JobResultsContent {
   display: flex;
-  gap: 20px;
+  gap: 1.2rem;
   align-items: flex-start;
 }
 
 .JobList {
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   display: grid;
-  gap: 20px;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   width: 100%;
 }
 
-.JobList .JobItem {
+.JobItem {
+  align-items: flex-start;
+  background-color: white;
+  border-radius: 0.93rem;
+  box-shadow: 0rem 0rem 0.93rem rgba(0, 0, 0, 0.07);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 5px;
+  gap: 0.31rem;
+  padding: 1.2rem;
+  transition: box-shadow .3s ease-in-out, transform .3s ease-in-out;
   width: 100%;
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.07);
-  padding: 20px;
+}
+
+.JobItem:hover {
+  box-shadow: 0rem 0rem 0.93rem rgba(0, 0, 0, 0.25);
+  transform: scale(1.01);
 }
 
 .JobInformation {
+  animation: aparecer 0.3s ease-in-out alternate-reverse;
+  background-color: white;
+  border-radius: 0.93rem;
+  box-shadow: 0rem 0rem 0.93rem rgba(0, 0, 0, 0.07);
   flex-basis: content;
   max-width: 50%;
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.07);
-  padding: 20px;
+  overflow-y: auto;
+  padding: 1.2rem;
   position: sticky;
-  top: 90px;
-  animation: aparecer 0.3s ease-in-out alternate-reverse;
+  top: 5.6rem;
   transform-origin: right;
 }
 
 @keyframes aparecer {
   0% {
     opacity: 1;
-    transform: scaleX(1);
+    transform: translate3d(0, 0, 0);
   }
   100% {
     opacity: 0;
-    transform: scaleX(0);
+    transform: translate3d(100%, 0, 0);
   }
 }
 
 .JobInformation article {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.6rem;
 }
 
 .JobHead {
-  display: flex;
-  gap: 10px;
   align-items: flex-start;
-  border-bottom: 1px solid #a7a7a7;
-  padding-bottom: 10px;
+  border-bottom: 0.06rem solid #a7a7a7;
+  display: flex;
+  gap: 0.6rem;
   justify-content: flex-start;
+  padding-bottom: 0.6rem;
   width: 100%;
 }
 
 .InformationLogo {
-  height: 100px;
+  height: 6.25rem;
   display: flex;
   align-items: center;
 }
 
 .InformationLogo img {
-  width: 100px;
+  width: 6.25rem;
 }
 
 .JobHeader {
-  display: flex;
   align-items: flex-start;
+  display: flex;
   flex-direction: column;
   width: 100%;
 }
@@ -428,10 +442,10 @@ section.JobResults {
 }
 
 .JobTitle {
-  display: flex;
   align-items: center;
-  width: 100%;
+  display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .JobDescription {
@@ -445,9 +459,9 @@ section.JobResults {
 }
 
 /* ---------------- Responsive ---------------- */
-@media screen and (max-width: 890px) {
+@media screen and (max-width: 55.6rem) {
   header {
-    gap: 20px;
+    gap: 1.2rem;
     justify-content: center;
   }
 
@@ -456,25 +470,48 @@ section.JobResults {
   }
 
   header .AcessOptions .LinkButton {
-    padding: 5px 10px;
+    padding: 0.31rem 0.6rem;
+  }
+
+  div.JobInformation {
+    box-shadow: 0 0 6.25rem rgba(0, 0, 0, 0.5);
+    left: 2.5%;
+    max-width: 95%;
+    position: fixed;
+  }
+
+  @keyframes aparecer {
+    0% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      opacity: 0;
+      transform: translate3d(0, 50%, 0);
+    }
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 31.2rem) {
   header {
-    justify-content: space-between;
     background: transparent;
+    justify-content: space-between;
     padding: 0;
     transition: background 0.3s;
   }
 
+  header .HeaderLogo {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
   header .AcessOptions,
   header .NavOptions {
-    margin-top: -300%;
-    position: absolute;
     opacity: 0;
-    width: 100%;
     transition: margin 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    width: 100%;
   }
 
   header.Open .AcessOptions,
@@ -492,7 +529,7 @@ section.JobResults {
   header.Open {
     background-color: var(--purple);
     color: white;
-    box-shadow: 0 -15px 10px #00000026 inset;
+    box-shadow: 0 -0.93rem 0.6rem #00000026 inset;
   }
 
   header.Open .LabelMenuIcon,
@@ -500,35 +537,26 @@ section.JobResults {
     filter: contrast(0) brightness(2);
   }
 
-  header.Open .ContainerLogo svg path:first-child,
-  header.Open .ContainerLogo svg path:nth-child(2),
-  header.Open .ContainerLogo svg path:nth-child(5) {
-    animation: hidden 0.5s ease-in-out alternate 2;
+  header.Open .LinkButton.btn-orange {
+    background-color: var(--orange);
+    color: white;
+    border: 0.06rem solid var(--orange);
   }
 
-  @keyframes hidden {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(100%);
-    }
-  }
-
-  .header.Open .ContainerLogo svg path:nth-child(3) {
-    transform: translateY(100%);
+  header .NavOptions a:hover {
+    background-color: var(--deep-purple);
   }
 
   /* ------------------ Section ----------------- */
   section.HomeSection {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 0.6rem;
   }
 
   /* ---------------- SearchJobs ---------------- */
   .SearchJobs .SearchJobsContainer {
     flex-direction: column;
-    gap: 10px;
+    gap: 0.6rem;
     align-items: stretch;
   }
 

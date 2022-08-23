@@ -1,6 +1,5 @@
 import { memo, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useSearchParams } from 'react-router-dom';
 import JobInformation from './JobInformation';
 import JobItem from './JobItem';
 
@@ -8,7 +7,7 @@ const JobsResults = () => {
   const jobs = useSelector(state => state.jobs);
   const [selectedJob , setSelectedJob] = useState(null);
 
-  const [searchParams] = useSearchParams();
+  //const [searchParams] = useSearchParams();
 
   /* useEffect(() => {
     const jobsData = getJobs({

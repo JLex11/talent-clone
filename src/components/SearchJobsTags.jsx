@@ -1,17 +1,27 @@
 import { memo } from 'react';
 
 const SearchJobsTags = () => { 
-  const tags = ['Local', 'Remoto', 'Full Time', 'Part Time', 'Freelance'];
+  const tags = [
+    { label: 'Local', icon: 'home' }, 
+    { label: 'Remoto', icon: 'connect_without_contact' },
+    { label: 'Full Time', icon: 'hourglass_full' },
+    { label: 'Part Time', icon: 'hourglass_bottom' },
+    { label: 'Freelance', icon: 'free_cancellation' }
+  ];
 
   return (
     <div className="SearchJobsTags">
       <div className="SearchJobsTagsList">
         {tags.map(tag => (
           <a
-            key={tag}
+            key={tag.label}
             href="#"
-            className="SearchJobsTagsItem LinkButton btn-white">
-            {tag}
+            className="SearchJobsTagsItem LinkButton btn-white"
+          >
+            <div>
+              <span className='material-symbols-outlined'>{tag.icon}</span>
+              <span>{tag.label}</span>
+            </div>
           </a>
         ))}
       </div>

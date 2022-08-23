@@ -15,12 +15,8 @@ const JobInformation = ({job, handleClosetInformation}) => {
     }).observe(header);
   }, []);
 
-  const styles = {
-    ...descriptionLayouts,
-  };
-
   return (
-    <div className='JobInformation' style={styles}>
+    <div className='JobInformation' style={{...descriptionLayouts}}>
       <article>
         <JobHead
           {...job}

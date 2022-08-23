@@ -9,8 +9,9 @@ const Header = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
 
   useEffect(() => {
-    new ResizeObserver(entries => {
+    new ResizeObserver(() => {
       setIsMobile(window.innerWidth < 500);
+      window.innerWidth > 500 && setIsOpen(false);
     }).observe(document.body);
   }, []);
 
@@ -18,17 +19,39 @@ const Header = () => {
 
   return (
     <header className={isOpen ? 'Open' : ''}>
-      <Logo />
-      {isMobile && <MenuIcon openToggle={oppenToggle} />}
-      <nav className='NavOptions'>
-        <Link to='/job-search'>Encuentra un trabajo</Link>
-        <Link to='/salary-search'>Tu salario ideal</Link>
-        <Link to='/tax-calculator'>Calcular impuestos</Link>
-      </nav>
-      <div className='AcessOptions'>
-        <LinkButton to={'/login'} color='white'>Iniciar sesión</LinkButton>
-        <LinkButton to={'/enterprises'} color='orange'>Para empleadores</LinkButton>
+      <div className='HeaderLogo'>
+        <Logo />
+        {isMobile && <MenuIcon openToggle={oppenToggle} />}
       </div>
+      {isMobile ?
+        (
+          isOpen && (
+            <>
+              <nav className='NavOptions'>
+                <Link to='/job-search'>Encuentra un trabajo</Link>
+                <Link to='/salary-search'>Tu salario ideal</Link>
+                <Link to='/tax-calculator'>Calcular impuestos</Link>
+              </nav>
+              <div className='AcessOptions'>
+                <LinkButton to={'/login'} color='white'>Iniciar sesión</LinkButton>
+                <LinkButton to={'/enterprises'} color='orange'>Para empleadores</LinkButton>
+              </div>
+            </>
+          )
+        ) : (
+          <>
+            <nav className='NavOptions'>
+              <Link to='/job-search'>Encuentra un trabajo</Link>
+              <Link to='/salary-search'>Tu salario ideal</Link>
+              <Link to='/tax-calculator'>Calcular impuestos</Link>
+            </nav>
+            <div className='AcessOptions'>
+              <LinkButton to={'/login'} color='white'>Iniciar sesión</LinkButton>
+              <LinkButton to={'/enterprises'} color='orange'>Para empleadores</LinkButton>
+            </div>
+          </>
+        )
+      }
     </header>
   );
 };

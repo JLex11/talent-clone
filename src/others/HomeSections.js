@@ -13,7 +13,7 @@ export const sections = [
     title: '¿Buscas trabajo?',
     description: 'Consulta las ofertas disponibles en nuestro motor de búsqueda y crea alertas de trabajo personalizadas para ahorrar tiempo.',
     link: {
-      href: '/jobs',
+      href: '/job-search',
       label: 'Busca trabajo'
     },
   },
@@ -22,7 +22,7 @@ export const sections = [
     title: '¿Tienes un buen salario?',
     description: 'Averigua con nuestro buscador cuál es el salario medio de puestos similares al tuyo.',
     link: {
-      href: '/salary',
+      href: '/salary-search',
       label: 'Consulta los salarios'
     },
   },
